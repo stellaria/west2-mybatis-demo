@@ -55,7 +55,6 @@ public class DBMDemo {
 		enterPassWord();
 		UserMapper um = session.getMapper(UserMapper.class);
 		User user = um.getUser(username);
-		while ()
 
 	}
 	private void loginAsAdmin() {
