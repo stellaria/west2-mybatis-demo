@@ -7,6 +7,8 @@ public interface AdministratorMapper {
 	Administrator getAdministrator(String username);
 	void insertAdministrator(Administrator admin);
 	LinkedHashSet<User> getUsers();
+	User getUser(String username);
 	void insertUser(User user);
 	void deleteUser(User user);
+	void changePassword(Administrator admin);
 }

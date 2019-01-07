@@ -3,6 +3,10 @@
 
 <mapper namespace="com.lunacia.dao.UserMapper">
     <select id="getUser" parameterType="String" resultType="com.lunacia.domain.User">
-        SELECT * FROM n_users WHERE username=#{username}
+        SELECT * FROM n_users WHERE username=#{username};
     </select>
+    <update id="updateUser" parameterType="com.lunacia.domain.User">
+        UPDATE n_users SET password=#{password}, name=#{name}, gender=#{gender}, phone=#{phone}
+        WHERE id=#{id};
+    </update>
 </mapper>

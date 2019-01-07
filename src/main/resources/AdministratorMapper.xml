@@ -3,22 +3,29 @@
 
 <mapper namespace="com.lunacia.dao.AdministratorMapper">
     <select id="getAdministrator" parameterType="String" resultType="com.lunacia.domain.Administrator">
-        SELECT * FROM administrators as 'ad' WHERE username=#{username}
+        SELECT * FROM administrators WHERE username=#{username};
     </select>
     <select id="getUsers" resultType="com.lunacia.domain.User">
-        SELECT * FROM n_users
+        SELECT * FROM n_users;
+    </select>
+    <select id="getUser" parameterType="String" resultType="com.lunacia.domain.User">
+        SELECT * FROM n_users WHERE username=#{username};
     </select>
     <insert id="insertUser" parameterType="com.lunacia.domain.User">
         INSERT INTO n_users (username, password, name, gender, phone) VALUES (
           #{username}, #{password}, #{name}, #{gender}, #{phone}
-        )
+        );
     </insert>
     <insert id="insertAdministrator" parameterType="com.lunacia.domain.Administrator">
         INSERT INTO administrators (username, password) VALUES (
           #{username}, #{password}
-        )
+        );
     </insert>
     <delete id="deleteUser" parameterType="com.lunacia.domain.User">
         DELETE FROM n_users WHERE username=#{username}
     </delete>
+    <update id="changePassword" parameterType="com.lunacia.domain.Administrator">
+        UPDATE administrators SET password=#{password}
+        WHERE id=#{id};
+    </update>
 </mapper>

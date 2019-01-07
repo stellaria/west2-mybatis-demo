@@ -1,4 +1,6 @@
 package com.lunacia.domain;
+import sun.security.provider.MD5;
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -31,14 +33,7 @@ public class User {
 	}
 
 	public void setPassword (String password) {
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] inputArray = password.getBytes();
-			md.update(inputArray);
-			this.password = md.digest().toString();
-		} catch (NoSuchAlgorithmException e) {
-			System.out.println(e.getMessage());
-		}
+		this.password = password;
 	}
 
 	public String getName () {
@@ -68,6 +63,6 @@ public class User {
 
 	@Override
 	public String toString () {
-		return "[ id: " + this.id + "\n username: "+this.username + "\n name: " + this.name + "\n gender: " + this.gender + "\n phone: " + this.phone + " ]\n";
+		return "[ id: " + this.id + " username: "+this.username + "  name: " + this.name + "  gender: " + this.gender + "  phone: " + this.phone + " ]\n";
 	}
 }
