@@ -40,7 +40,7 @@ public class UserConnection extends AbstractPerson{
 			System.out.println(e.getMessage());
 		}
 		System.out.print("please enter new password");
-		String passwd = scan.next();
+		String passwd = Password.enterPassword();
 		Encrypt en = new Encrypt();
 		theOne.setPassword(en.getHash(passwd));
 		um.updateUser(theOne);

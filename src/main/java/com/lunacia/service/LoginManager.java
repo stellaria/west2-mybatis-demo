@@ -24,16 +24,18 @@ public class LoginManager {
 	private String username = null, password = null;
 	private Encrypt en = new Encrypt();
 
-	private void enterPassword() {
-		Console console = System.console();
-		scanner = new Scanner(System.in);
-		if (console == null) {
-			password = scanner.next();
-		} else {
-			char[] passwdArray = console.readPassword("%s");
-			password = new String(passwdArray);
-		}
-	}
+//	private String enterPassword() {
+//		String password;
+//		Console console = System.console();
+//		scanner = new Scanner(System.in);
+//		if (console == null) {
+//			password = scanner.next();
+//		} else {
+//			char[] passwdArray = console.readPassword();
+//			password = new String(passwdArray);
+//		}
+//		return password;
+//	}
 
 	public void signInAsUser() throws IOException {
 		conn = new Connection();
@@ -50,7 +52,7 @@ public class LoginManager {
 			username = scanner.next();
 		}
 		System.out.printf("please enter password: ");
-		enterPassword();
+		password = scanner.next();
 		System.out.printf("please enter name: ");
 		name = scanner.next();
 		System.out.printf("please enter gender(f/m): ");
@@ -94,11 +96,11 @@ public class LoginManager {
 			return null;
 		}
 		System.out.print("please enter password: ");
-		enterPassword();
+		password = Password.enterPassword();
 //		System.out.println(en.getHash(password).equals(user.getPassword()));
 		while (!en.getHash(password).equals(user.getPassword())) {
 			System.out.print("login failed, please enter correct password: ");
-			enterPassword();
+			password = Password.enterPassword();
 		}
 		conn.close();
 		return user; //用户登录
@@ -115,10 +117,10 @@ public class LoginManager {
 			return null;
 		}
 		System.out.print("please enter password: ");
-		enterPassword();
+		password = Password.enterPassword();
 		while (!en.getHash(password).equals(admin.getPassword())) {
 			System.out.print("login failed, please enter correct password: ");
-			enterPassword();
+			password = Password.enterPassword();
 		}
 		conn.close();
 		return admin;//管理员登录

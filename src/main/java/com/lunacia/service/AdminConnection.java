@@ -40,7 +40,7 @@ public class AdminConnection extends AbstractPerson{
 			System.out.println(e.getMessage());
 		}
 		System.out.printf("please enter new password: ");
-		String passwd = scan.next();
+		String passwd = Password.enterPassword();
 		Encrypt en = new Encrypt();
 		theOne.setPassword(en.getHash(passwd));
 		am.changePassword(theOne);
