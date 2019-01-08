@@ -37,7 +37,7 @@ public class dbDemo {
 				}case 2: {
 					UserConnection uc = new UserConnection(lm.loginAsUser());
 					int j = uc.menu();
-					while (j != 3) {
+					while (j != 4) {
 						switch(j) {
 							case 1: {
 								uc.changePassword();
@@ -45,12 +45,16 @@ public class dbDemo {
 							}case 2: {
 								uc.changeInfo();
 								break;
+							}case 3: {
+								uc.showInfo();
+								break;
 							}default: {
 								break;
 							}
 						}
 						j = uc.menu();
 					}
+					break;
 				}case 3: {
 					AdminConnection ac = new AdminConnection(lm.loginAsAdmin());
 					int j = ac.menu();
@@ -74,6 +78,7 @@ public class dbDemo {
 						}
 						j = ac.menu();
 					}
+					break;
 				}
 			}
 			i = menu();

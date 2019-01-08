@@ -4,7 +4,6 @@ import com.lunacia.dao.UserMapper;
 import com.lunacia.domain.User;
 
 import javax.annotation.Resource;
-import java.io.Console;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
@@ -22,10 +21,11 @@ public class UserConnection extends AbstractPerson{
 		System.out.println("-------------User menu-------------");
 		System.out.println("1. change password");
 		System.out.println("2. change information");
-		System.out.println("3. quit");
+		System.out.println("3. show information");
+		System.out.println("4. quit");
 		Scanner scan = new Scanner(System.in);
 		int i = scan.nextInt();
-		while (i != 1 && i != 2 && i != 3) {
+		while (i != 1 && i != 2 && i != 3 && i != 4) {
 			i = scan.nextInt();
 		}
 		return i;
@@ -59,5 +59,9 @@ public class UserConnection extends AbstractPerson{
 		theOne.setName(name);
 		theOne.setPhone(phone);
 		theOne.setGender(gender);
+	}
+
+	public void showInfo() {
+		System.out.println(theOne);
 	}
 }

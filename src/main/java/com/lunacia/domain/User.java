@@ -63,6 +63,6 @@ public class User {
 
 	@Override
 	public String toString () {
-		return "[ id: " + this.id + " username: "+this.username + "  name: " + this.name + "  gender: " + this.gender + "  phone: " + this.phone + " ]\n";
+		return "[ id: " + this.id + "  username: "+this.username + "  name: " + this.name + "  gender: " + this.gender + "  phone: " + this.phone + " ]\n";
 	}
 }
